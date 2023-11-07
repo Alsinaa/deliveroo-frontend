@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  // const [basket, setBasket] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       console.log("useEffect");
@@ -33,39 +33,79 @@ function App() {
           <img src={data.restaurant.picture} alt="image header" />
         </div>
       </header>
-      <main className="main">
+      <section className="main">
         {data.categories.map((elem) => {
           return (
-            <div className="main-container" key={elem.name}>
-              {elem.meals.length === 0 ? (
-                <p></p>
-              ) : (
-                <p className="category">{elem.name} </p>
-              )}
-              <div className="meals" key={elem.title}>
-                {elem.meals.map((elem) => {
-                  return (
-                    <div className="meals-container" key={elem.meals}>
-                      <p className="meals-title" key={elem.title}>
-                        {elem.title}
-                      </p>
-                      <p className="meals-details">{elem.description}</p>
-                      <p className="meals-price">{elem.price} €</p>
-                      {elem.picture && (
-                        <img
-                          className="meals-pictures"
-                          src={elem.picture}
-                          alt=""
-                        />
-                      )}
-                    </div>
-                  );
-                })}
+            <>
+              <div className="container">
+                {elem.meals.length === 0 ? (
+                  <p></p>
+                ) : (
+                  <div className="category" key={elem.name}>
+                    <h2>{elem.name}</h2>
+                  </div>
+                )}
+
+                <div className="meals">
+                  {elem.meals.map((elem, index) => {
+                    return (
+                      <>
+                        <div className="meals-detail">
+                          <div className="text">
+                            <p className="meals-title" key={elem.title}>
+                              {elem.title}
+                            </p>
+                            <p className="meals-description" key={elem.index}>
+                              {elem.description}
+                            </p>
+
+                            <div className="popular-meals">
+                              <p className="meals-price" key={elem.index}>
+                                {elem.price} €
+                              </p>
+
+                              {elem.popular ? (
+                                <p className="popular" key={elem.index}>
+                                  <span>
+                                    <i className="icon-STAR_FILL"></i>
+                                  </span>
+                                  Populaire
+                                </p>
+                              ) : (
+                                <p></p>
+                              )}
+                            </div>
+                          </div>
+                          {elem.picture && <img src={elem.picture} alt="" />}
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            </>
           );
         })}
-      </main>
+      </section>
+      <section>
+        <div className="cart">
+          <button>Valider mon panier</button>
+          {/* {meals.map((elem, index) => {
+            return (
+              <div className="cart-container" key={elem.index}>
+                <button>-</button>
+                <p> {elem.quantity}</p>
+                <button>+</button>
+                <p> {elem.meal}</p>
+                <p> {elem.price} €</p>
+              </div>
+            );
+          })} */}
+          <p>Sous-total</p>
+          <p>Frais de livraison</p>
+          <h3>Total</h3>
+        </div>
+      </section>
     </div>
   );
 }

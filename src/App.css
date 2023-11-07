@@ -41,17 +41,18 @@
 }
 
 .App {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 1200px;
   margin: 0 auto;
   padding: 10px;
   font-family: "IBM Plex Sans";
 }
-main {
+.main {
   background-color: lightgray;
 }
 .container {
   display: flex;
+  /* border: 2px solid red; */
 }
 .name {
   padding: 20px 0;
@@ -80,48 +81,76 @@ h1 {
   width: 350px;
   height: 200px;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 .category {
-  /* background-color: aliceblue; */
-  font-size: 30px;
+  display: flex;
+  border: 1px solid plum;
+  font-size: 25px;
   font-family: "IBM Plex Sans";
   font-weight: bold;
   margin: 20px 0px;
 }
-.meals {
-  /* border: 2px solid purple; */
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 65%;
+.main {
+  background-color: #f2f5f5;
+  /* border: 2px solid orange; */
 }
-.meals-title {
-  /* border: 1px solid blue; */
-  font-size: 20px;
-}
-.meals-details {
-  height: 33px;
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.meals-pictures {
-  border: 2px solid peru;
+.main img {
   height: 130px;
   width: 130px;
-  border-radius: 5px;
+  border-radius: 10px;
   object-fit: cover;
 }
-.meals-container {
-  /* background-color: khaki; */
-  width: 48%;
-  height: 166px;
+.meals-detail {
   background-color: white;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  width: 400px;
+  height: 160px;
+  display: flex;
   padding: 15px;
-  box-sizing: border-box;
+  border: 1px solid green;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.meals-title {
+  font-size: 20px;
+  color: #2e3333;
+  margin-bottom: 10px;
+}
+
+.meals-description {
+  font-size: 15px;
+  color: #808484;
+  margin-bottom: 15px;
+  width: 200px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  height: 32px;
+}
+
+.meals-price {
+  color: #808484;
+}
+
+.meals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* border: 1px solid yellow; */
+}
+
+.popular-meals {
+  display: flex;
+  gap: 20px;
+}
+
+.popular {
+  color: #ff8001;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
 }
